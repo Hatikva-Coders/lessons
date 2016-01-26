@@ -1,24 +1,41 @@
 public class Stage1 {
 
     public static void main(String [] args) {
+		String password;
+		int a=-7;
+		int b=2;
+		char some_character = 'w';
+		boolean shouldContinue = true;
 		
-		int password;
-		int a=2;
-		int b=1;
 		
-		while (  a <= 4*b ){
-			if ( (2*b-a)%3<2 ){
-				a = a+1;
+		while (  shouldContinue ){
+			if ( a > 0 ){
+				some_character = 'a';
 			}
-			b = b+1;
-			if ( !(a>=b) ){
-				a = (a*3)/2;
+			else {
+				a = a+3;
+				b = a - b +1;
 			}
-			a = a + 5;
+			
+			if ( some_character == 'w' && !(b<0) ){
+				some_character = 'd';
+				shouldContinue = !shouldContinue;
+			}
+			
+			if ( a < b ){
+				shouldContinue = true;
+				some_character = 'w';
+			}
+			
+			if ( some_character=='a' ){
+				some_character = 't';
+				shouldContinue = !shouldContinue;
+				b = 1000;
+			}
 		}
 		
 		
-		password = a;
+		password = "P" + some_character + a + "!" + b;
 	}
 
 }
